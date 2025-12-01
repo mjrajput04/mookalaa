@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Calendar, MapPin, Users, Heart } from "lucide-react"
 import Link from "next/link"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { formatDate } from "@/lib/utils-events"
 
 interface EventCardProps {
@@ -17,7 +17,30 @@ interface EventCardProps {
 export function EventCard({ event, variant = "grid" }: EventCardProps) {
   const [isLiked, setIsLiked] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile && videoRef.current && event.hoverVideo) {
+      const playVideo = async () => {
+        try {
+          await videoRef.current?.play()
+        } catch (error) {
+          // Ignore autoplay errors
+        }
+      }
+      playVideo()
+    }
+  }, [isMobile, event.hoverVideo])
 
   const handleMouseEnter = async () => {
     setIsHovered(true)
@@ -106,14 +129,16 @@ export function EventCard({ event, variant = "grid" }: EventCardProps) {
               <img
                 src={event.image || "/placeholder.svg"}
                 alt={event.title}
-                className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
+                className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ${(isHovered || isMobile) ? 'opacity-0' : 'opacity-100'}`}
               />
               <video
                 ref={videoRef}
                 src={event.hoverVideo}
                 muted
                 loop
-                className={`absolute inset-0 w-full h-full transition-all duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+                autoPlay={isMobile}
+                playsInline
+                className={`absolute inset-0 w-full h-full transition-all duration-300 ${(isHovered || isMobile) ? 'opacity-100' : 'opacity-0'}`}
                 style={{ 
                   objectFit: 'cover', 
                   objectPosition: 'center',
