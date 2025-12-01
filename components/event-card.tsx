@@ -1,0 +1,117 @@
+"use client"
+
+import type { Event } from "@/lib/types"
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Calendar, MapPin, Users, Heart } from "lucide-react"
+import Link from "next/link"
+import { useState } from "react"
+import { formatDate } from "@/lib/utils-events"
+
+interface EventCardProps {
+  event: Event
+  variant?: "grid" | "featured"
+}
+
+export function EventCard({ event, variant = "grid" }: EventCardProps) {
+  const [isLiked, setIsLiked] = useState(false)
+
+  if (variant === "featured") {
+    return (
+      <Link href={`/event/${event.id}`}>
+        <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group h-full">
+          <div className="relative overflow-hidden h-64 bg-muted">
+            <img
+              src={event.image || "/placeholder.svg"}
+              alt={event.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            {event.featured && (
+              <Badge className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600">Featured</Badge>
+            )}
+          </div>
+          <div className="p-5">
+            <div className="flex items-start justify-between gap-2 mb-3">
+              <Badge variant="outline" className="rounded-md">
+                {event.category}
+              </Badge>
+              {event.isFree && (
+                <Badge variant="secondary" className="rounded-md text-xs">
+                  Free
+                </Badge>
+              )}
+            </div>
+            <h3 className="font-bold text-lg mb-2 line-clamp-2 group-hover:text-primary transition">{event.title}</h3>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Calendar size={16} />
+                <span>{formatDate(event.date)}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin size={16} />
+                <span className="line-clamp-1">{event.city}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users size={16} />
+                <span>{event.attendees.toLocaleString()} attending</span>
+              </div>
+            </div>
+            <div className="mt-4 flex items-center justify-between">
+              <span className="font-bold text-lg">{event.isFree ? "Free" : `$${event.price}`}</span>
+              {event.rating && <span className="text-sm text-yellow-500">★ {event.rating.toFixed(1)}</span>}
+            </div>
+          </div>
+        </Card>
+      </Link>
+    )
+  }
+
+  return (
+    <Link href={`/event/${event.id}`}>
+      <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group h-full flex flex-col">
+        <div className="relative overflow-hidden h-40 bg-muted">
+          <img
+            src={event.image || "/placeholder.svg"}
+            alt={event.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          />
+          <button
+            onClick={(e) => {
+              e.preventDefault()
+              setIsLiked(!isLiked)
+            }}
+            className="absolute top-2 right-2 p-2 bg-white/90 rounded-full hover:bg-white transition-colors"
+          >
+            <Heart size={18} fill={isLiked ? "currentColor" : "none"} color={isLiked ? "#ef4444" : "#666"} />
+          </button>
+        </div>
+        <div className="p-4 flex-1 flex flex-col">
+          <Badge variant="outline" className="w-fit rounded-md text-xs mb-2">
+            {event.category}
+          </Badge>
+          <h3 className="font-bold text-sm mb-2 line-clamp-2 group-hover:text-primary transition flex-1">
+            {event.title}
+          </h3>
+          <div className="space-y-1 text-xs text-muted-foreground mb-3">
+            <div className="flex items-center gap-1">
+              <Calendar size={14} />
+              <span>{formatDate(event.date)}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <MapPin size={14} />
+              <span className="line-clamp-1">{event.isOnline ? "Online" : event.city}</span>
+            </div>
+          </div>
+          <div className="flex items-center justify-between pt-3 border-t border-border">
+            <span className="font-bold text-sm">{event.isFree ? "Free" : `$${event.price}`}</span>
+            <Button size="sm" variant="ghost" className="h-7 text-xs">
+              View
+            </Button>
+          </div>
+        </div>
+      </Card>
+    </Link>
+  )
+}
