@@ -452,6 +452,7 @@ export const mockEvents: Event[] = [
     description:
       "An enchanting evening of Indian classical music featuring renowned musicians performing traditional ragas and compositions.",
     image: "/indian-classical-music-masterclass.jpg",
+    hoverVideo: "/video/Make_a_video_202512011722.mp4",
     date: new Date("2025-03-15"),
     time: "07:00 PM",
     location: "Music Auditorium, Chennai, Tamil Nadu",

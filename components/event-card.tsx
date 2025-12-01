@@ -19,18 +19,26 @@ export function EventCard({ event, variant = "grid" }: EventCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = async () => {
     setIsHovered(true)
     if (videoRef.current && event.hoverVideo) {
-      videoRef.current.play()
+      try {
+        await videoRef.current.play()
+      } catch (error) {
+        // Ignore play interruption errors
+      }
     }
   }
 
   const handleMouseLeave = () => {
     setIsHovered(false)
     if (videoRef.current) {
-      videoRef.current.pause()
-      videoRef.current.currentTime = 0
+      try {
+        videoRef.current.pause()
+        videoRef.current.currentTime = 0
+      } catch (error) {
+        // Ignore pause errors
+      }
     }
   }
 
