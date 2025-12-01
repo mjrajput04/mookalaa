@@ -88,7 +88,7 @@ export const mockEvents: Event[] = [
     title: "Odisha Dance Festival 2025",
     description:
       "Celebrate the grace and elegance of Odisha dance with performances from acclaimed dancers. Experience traditional choreography and contemporary interpretations.",
-    image: "/Odissi-dance-festival-performance-stage.jpg",
+    image: "/odissi-dance-festival-performance-stage.jpg",
     date: new Date("2025-02-15"),
     time: "06:00 PM",
     endDate: new Date("2025-02-15"),
@@ -386,7 +386,7 @@ export const mockEvents: Event[] = [
     title: "Odisha Dance Festival - Classical Heritage",
     description:
       "Experience the divine grace of Odisha dance with master performers showcasing classical choreography and contemporary interpretations.",
-    image: "/Odissi-dance-festival-performance-stage.jpg",
+    image: "/odissi-dance-festival-performance-stage.jpg",
     hoverVideo: "/video/1764583058940.mp4",
     date: new Date("2025-02-26"),
     time: "07:00 PM",
