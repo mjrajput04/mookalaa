@@ -31,7 +31,7 @@ export function HeroSearch() {
           loop
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/video/1764582304915.mp4" type="video/mp4" />
+          <source src="/video/WhatsApp Video 2025-12-01 at 3.34.23 PM.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-amber-600/30 via-teal-600/30 to-blue-900/30"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
