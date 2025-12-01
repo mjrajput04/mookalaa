@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Calendar, MapPin, Users, Heart } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { formatDate } from "@/lib/utils-events"
 
 interface EventCardProps {
@@ -16,6 +16,23 @@ interface EventCardProps {
 
 export function EventCard({ event, variant = "grid" }: EventCardProps) {
   const [isLiked, setIsLiked] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+    if (videoRef.current && event.hoverVideo) {
+      videoRef.current.play()
+    }
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+    if (videoRef.current) {
+      videoRef.current.pause()
+      videoRef.current.currentTime = 0
+    }
+  }
 
   if (variant === "featured") {
     return (
@@ -71,12 +88,40 @@ export function EventCard({ event, variant = "grid" }: EventCardProps) {
   return (
     <Link href={`/event/${event.id}`}>
       <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group h-full flex flex-col">
-        <div className="relative overflow-hidden h-40 bg-muted">
-          <img
-            src={event.image || "/placeholder.svg"}
-            alt={event.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-          />
+        <div 
+          className="relative overflow-hidden h-40 bg-muted"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {event.hoverVideo ? (
+            <>
+              <img
+                src={event.image || "/placeholder.svg"}
+                alt={event.title}
+                className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
+              />
+              <video
+                ref={videoRef}
+                src={event.hoverVideo}
+                muted
+                loop
+                className={`absolute inset-0 w-full h-full transition-all duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+                style={{ 
+                  objectFit: 'cover', 
+                  objectPosition: 'center',
+                  width: '100%',
+                  height: '100%',
+                  transform: 'scale(1.8)'
+                }}
+              />
+            </>
+          ) : (
+            <img
+              src={event.image || "/placeholder.svg"}
+              alt={event.title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+          )}
           <button
             onClick={(e) => {
               e.preventDefault()

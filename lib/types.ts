@@ -4,6 +4,7 @@ export interface Event {
   title: string
   description: string
   image: string
+  hoverVideo?: string
   date: Date
   time: string
   endDate?: Date

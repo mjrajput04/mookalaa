@@ -25,8 +25,15 @@ export function HeroSearch() {
     <div className="w-full">
       {/* Hero Background */}
       <div className="relative h-[500px] rounded-2xl overflow-hidden mb-8">
+        <video
+          autoPlay
+          muted
+          loop
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/video/1764582304915.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-br from-amber-600/30 via-teal-600/30 to-blue-900/30"></div>
-        <div className="absolute inset-0 bg-[url('/concert-stage-lights-event.jpg')] bg-cover bg-center opacity-40"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
 
         {/* Hero Content */}
