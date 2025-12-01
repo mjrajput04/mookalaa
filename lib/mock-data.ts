@@ -7,7 +7,7 @@ export const trendingCities: EventCity[] = [
     name: "Bhubaneswar",
     country: "Odisha, India",
     eventCount: 245,
-    image: "/bhubaneswar-odisha-cultural-city.jpg",
+    image: "/bhubaneswar-odissi-cultural-city.jpg",
     coordinates: { lat: 20.2961, lng: 85.8245 },
   },
   {
@@ -51,7 +51,7 @@ const organizers: Organizer[] = [
   {
     id: "1",
     name: "Odisha Classical Arts",
-    image: "/odisha-arts-collective-logo.jpg",
+    image: "/odissi-arts-collective-logo.jpg",
     verified: true,
     events: 42,
     followers: 5200,
@@ -85,10 +85,10 @@ const organizers: Organizer[] = [
 export const mockEvents: Event[] = [
   {
     id: "1",
-    title: "Odissi Dance Festival 2025",
+    title: "Odisha Dance Festival 2025",
     description:
-      "Celebrate the grace and elegance of Odissi dance with performances from acclaimed dancers. Experience traditional choreography and contemporary interpretations.",
-    image: "/odissi-dance-festival-performance-stage.jpg",
+      "Celebrate the grace and elegance of Odisha dance with performances from acclaimed dancers. Experience traditional choreography and contemporary interpretations.",
+    image: "/Odissi-dance-festival-performance-stage.jpg",
     date: new Date("2025-02-15"),
     time: "06:00 PM",
     endDate: new Date("2025-02-15"),
@@ -101,7 +101,7 @@ export const mockEvents: Event[] = [
     isOnline: false,
     organizer: organizers[0],
     attendees: 2341,
-    tags: ["Odissi", "Dance", "Classical", "Traditional Art"],
+    tags: ["Odisha", "Dance", "Classical", "Traditional Art"],
     featured: true,
     rating: 4.8,
   },
@@ -155,6 +155,7 @@ export const mockEvents: Event[] = [
     description:
       "Discover independent films from emerging filmmakers across India and the world. Q&A sessions with directors.",
     image: "/film-festival-cinema-screening.jpg",
+    hoverVideo: "/video/Make_a_video_202512011735_ksfvw.mp4",
     date: new Date("2025-03-01"),
     time: "02:00 PM",
     endDate: new Date("2025-03-03"),
@@ -183,7 +184,7 @@ export const mockEvents: Event[] = [
     city: "Virtual",
     coordinates: { lat: 0, lng: 0 },
     category: "Custom Orders",
-    price: 499,
+    price: 499, 
     isFree: false,
     isOnline: true,
     organizer: organizers[0],
@@ -382,10 +383,10 @@ export const mockEvents: Event[] = [
   },
   {
     id: "15",
-    title: "Odissi Dance Festival - Classical Heritage",
+    title: "Odisha Dance Festival - Classical Heritage",
     description:
-      "Experience the divine grace of Odissi dance with master performers showcasing classical choreography and contemporary interpretations.",
-    image: "/odissi-dance-festival-performance-stage.jpg",
+      "Experience the divine grace of Odisha dance with master performers showcasing classical choreography and contemporary interpretations.",
+    image: "/Odissi-dance-festival-performance-stage.jpg",
     hoverVideo: "/video/1764583058940.mp4",
     date: new Date("2025-02-26"),
     time: "07:00 PM",
@@ -399,7 +400,7 @@ export const mockEvents: Event[] = [
     isOnline: false,
     organizer: organizers[1],
     attendees: 3200,
-    tags: ["Odissi", "Dance", "Classical", "Heritage"],
+    tags: ["Odisha", "Dance", "Classical", "Heritage"],
     featured: true,
     rating: 4.9,
   },
@@ -430,7 +431,8 @@ export const mockEvents: Event[] = [
     title: "Traditional Jatra Folk Theatre",
     description:
       "Experience authentic Bengali folk theatre with traditional Jatra performances featuring mythological stories and social themes.",
-    image: "/bharatanatyam-dance-workshop.jpg",
+    image: "/37ce720301ab1ec46d70699242db169c.jpg",
+    hoverVideo: "/video/Make_a_video_202512011800_y1a4q.mp4",
     date: new Date("2025-03-12"),
     time: "08:00 PM",
     location: "Folk Theatre Hall, Kolkata, West Bengal",
@@ -497,6 +499,7 @@ export const mockEvents: Event[] = [
     description:
       "A collection of award-winning short films from international filmmakers, showcasing diverse storytelling and innovative cinematography.",
     image: "/street-art-graffiti-workshop.jpg",
+    hoverVideo: "/video/Make_a_video_202512011743_xo3sl.mp4",
     date: new Date("2025-03-22"),
     time: "05:30 PM",
     location: "Art Cinema Hall, Mumbai, Maharashtra",

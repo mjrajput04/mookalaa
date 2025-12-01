@@ -95,12 +95,12 @@ export function EventCard({ event, variant = "grid" }: EventCardProps) {
 
   return (
     <Link href={`/event/${event.id}`}>
-      <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group h-full flex flex-col">
-        <div 
-          className="relative overflow-hidden h-40 bg-muted"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
+      <Card 
+        className="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group h-full flex flex-col"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="relative overflow-hidden h-40 bg-muted">
           {event.hoverVideo ? (
             <>
               <img
