@@ -322,7 +322,7 @@ export const mockEvents: Event[] = [
     description:
       "An evening of classical Hindustani music featuring maestro sitar player performing raags from morning to night traditions.",
     image: "/sitar-recital-classical-music.jpg",
-    hoverVideo: "/video/Make_a_video_202512011713.mp4",
+    hoverVideo: "/video/Make_a_video_202512011730_djvk7.mp4",
     date: new Date("2025-03-05"),
     time: "06:00 PM",
     location: "Sapru House, New Delhi, India",
@@ -452,7 +452,7 @@ export const mockEvents: Event[] = [
     description:
       "An enchanting evening of Indian classical music featuring renowned musicians performing traditional ragas and compositions.",
     image: "/indian-classical-music-masterclass.jpg",
-    hoverVideo: "/video/Make_a_video_202512011722.mp4",
+    hoverVideo: "/video/Make_a_video_202512011729_o133i.mp4",
     date: new Date("2025-03-15"),
     time: "07:00 PM",
     location: "Music Auditorium, Chennai, Tamil Nadu",
@@ -474,6 +474,7 @@ export const mockEvents: Event[] = [
     description:
       "A curated selection of award-winning documentaries from around the world, featuring stories of culture, society, and human experiences.",
     image: "/digital-art-animation-expo.jpg",
+    hoverVideo: "/video/Make_a_video_202512011727_ikc3b.mp4",
     date: new Date("2025-03-18"),
     time: "06:00 PM",
     endDate: new Date("2025-03-20"),
