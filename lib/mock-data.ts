@@ -7,7 +7,7 @@ export const trendingCities: EventCity[] = [
     name: "Bhubaneswar",
     country: "Odisha, India",
     eventCount: 245,
-    image: "/bhubaneswar-odissi-cultural-city.jpg",
+    image: "/bhubaneswar-odisha-cultural-city.jpg",
     coordinates: { lat: 20.2961, lng: 85.8245 },
   },
   {
