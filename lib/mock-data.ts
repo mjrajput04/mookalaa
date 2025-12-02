@@ -4,10 +4,17 @@ export const categories = ["Jatra", "Cinema", "Music", "Dance", "Festivals", "Wo
 
 export const trendingCities: EventCity[] = [
   {
-    name: "Bhubaneswar",
+    name: "Odisha",
     country: "Odisha, India",
+    eventCount: 445,
+    image: "/image.png",
+    coordinates: { lat: 20.2961, lng: 85.8245 },
+  },
+  {
+    name: "Bhubaneswar",
+    country: "Odissi, India",
     eventCount: 245,
-    image: "/bhubaneswar-odisha-cultural-city.jpg",
+    image: "/lingaraj-temple-bhubaneshwar-odisha-2-attr-hero.jpg",
     coordinates: { lat: 20.2961, lng: 85.8245 },
   },
   {
@@ -38,19 +45,13 @@ export const trendingCities: EventCity[] = [
     image: "/bangalore-india-tech-arts-fusion.jpg",
     coordinates: { lat: 12.9716, lng: 77.5946 },
   },
-  {
-    name: "New York",
-    country: "USA",
-    eventCount: 412,
-    image: "/new-york-global-arts-stage.jpg",
-    coordinates: { lat: 40.7128, lng: -74.006 },
-  },
+
 ]
 
 const organizers: Organizer[] = [
   {
     id: "1",
-    name: "Odisha Classical Arts",
+    name: "Odissi Classical Arts",
     image: "/odissi-arts-collective-logo.jpg",
     verified: true,
     events: 42,
@@ -85,14 +86,14 @@ const organizers: Organizer[] = [
 export const mockEvents: Event[] = [
   {
     id: "1",
-    title: "Odisha Dance Festival 2025",
+    title: "Odissi Dance Festival 2025",
     description:
-      "Celebrate the grace and elegance of Odisha dance with performances from acclaimed dancers. Experience traditional choreography and contemporary interpretations.",
+      "Celebrate the grace and elegance of Odissi dance with performances from acclaimed dancers. Experience traditional choreography and contemporary interpretations.",
     image: "/odissi-dance-festival-performance-stage.jpg",
     date: new Date("2025-02-15"),
     time: "06:00 PM",
     endDate: new Date("2025-02-15"),
-    location: "Rabindra Mandap, Bhubaneswar, Odisha",
+    location: "Rabindra Mandap, Bhubaneswar, Odissi",
     city: "Bhubaneswar",
     coordinates: { lat: 20.2961, lng: 85.8245 },
     category: "Dance",
@@ -101,7 +102,7 @@ export const mockEvents: Event[] = [
     isOnline: false,
     organizer: organizers[0],
     attendees: 2341,
-    tags: ["Odisha", "Dance", "Classical", "Traditional Art"],
+    tags: ["Odissi", "Dance", "Classical", "Traditional Art"],
     featured: true,
     rating: 4.8,
   },
@@ -383,16 +384,16 @@ export const mockEvents: Event[] = [
   },
   {
     id: "15",
-    title: "Odisha Dance Festival - Classical Heritage",
+    title: "Odissi Dance Festival - Classical Heritage",
     description:
-      "Experience the divine grace of Odisha dance with master performers showcasing classical choreography and contemporary interpretations.",
+      "Experience the divine grace of Odissi dance with master performers showcasing classical choreography and contemporary interpretations.",
     image: "/odissi-dance-festival-performance-stage.jpg",
     hoverVideo: "/video/1764583058940.mp4",
     date: new Date("2025-02-26"),
     time: "07:00 PM",
     endDate: new Date("2025-02-28"),
-    location: "Kalinga Stadium, Bhubaneswar, Odisha",
-    city: "Bhubaneswar",
+    location: "Kalinga Stadium, Bhubaneswar, Odissi",
+    city: "Odisha",
     coordinates: { lat: 20.2961, lng: 85.8245 },
     category: "Jatra",
     price: 450,
@@ -400,7 +401,7 @@ export const mockEvents: Event[] = [
     isOnline: false,
     organizer: organizers[1],
     attendees: 3200,
-    tags: ["Odisha", "Dance", "Classical", "Heritage"],
+    tags: ["Odissi", "Dance", "Classical", "Heritage"],
     featured: true,
     rating: 4.9,
   },

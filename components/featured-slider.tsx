@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react"
 import type { Event } from "@/lib/types"
 import { EventCard } from "./event-card"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+
 
 interface FeaturedSliderProps {
   events: Event[]
@@ -49,23 +48,7 @@ export function FeaturedSlider({ events }: FeaturedSliderProps) {
         </div>
       </div>
 
-      {/* Navigation Buttons */}
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full z-10"
-      >
-        <ChevronLeft size={24} />
-      </Button>
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full z-10"
-      >
-        <ChevronRight size={24} />
-      </Button>
+
 
       {/* Indicators */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
